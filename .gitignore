@@ -1,28 +1,38 @@
-node_modules
+# Node.js
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Environment variables
 .env
-coverage
-coverage.json
-typechain
-typechain-types
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
-# Hardhat files
-cache
-artifacts
+# Build folders
+build/
+dist/
+out/
+.next/
 
-# OpenZeppelin
-.openzeppelin/unknown-*.json
-
-# IDE specific files
-.vscode
-.idea
-*.iml
-
-# Logs
-logs
+# Debug logs
+logs/
 *.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
 
-# OS specific
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS files
 .DS_Store
+Thumbs.db
+
+# Testing
+coverage/
+
+# Cache
+.cache/

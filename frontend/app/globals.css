@@ -27,6 +27,10 @@
     --success: 142 70.6% 45.3%;
     --gold: 51 100% 50%;
     --orange: 28 100% 50%;
+    
+    /* 添加自定义容器间距变量 */
+    --container-padding-left: 0.5rem;
+    --container-padding-right: 8rem; /* 增加右侧填充，使内容向右偏移 */
   }
 
   .dark {
@@ -52,6 +56,10 @@
     --success: 142 70.6% 45.3%;
     --gold: 51 100% 50%;
     --orange: 28 100% 50%;
+    
+    /* 黑暗模式下保持相同的偏移 */
+    --container-padding-left: 0.5rem;
+    --container-padding-right: 8rem;
   }
 }
 
@@ -123,7 +131,7 @@
   opacity: 1;
 }
 
-/* Molecule animation */
+/* Float animation for decorative elements */
 @keyframes float {
   0% {
     transform: translateY(0px);
@@ -136,7 +144,16 @@
   }
 }
 
-.float-animation {
+.float {
   animation: float 6s ease-in-out infinite;
 }
 
+/* 重新定义容器样式，使用CSS变量控制填充 */
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding-left);
+  padding-right: var(--container-padding-right);
+  max-width: 1280px;
+}

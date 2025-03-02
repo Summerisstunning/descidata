@@ -1,94 +1,151 @@
-# DeSciData
+# DeSciData - 去中心化科学数据平台
 
-A platform for decentralized science data storage, funding, and provenance tracking built on Ethereum.
+[![GitHub license](https://img.shields.io/github/license/KarlLeen/descidata)](https://github.com/KarlLeen/descidata/blob/main/LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/KarlLeen/descidata)](https://github.com/KarlLeen/descidata/stargazers)
 
-## Overview
+DeSciData是一个创新的区块链驱动的研究数据管理和融资生态系统，旨在解决科学研究中的数据完整性、获取和资金问题。平台将去中心化存储、智能合约和NFT技术结合，为研究人员创建一个透明、安全且高效的环境。
 
-DeSciData is a smart contract system that allows researchers to:
+## 项目概述
 
-- Create and manage scientific experiments
-- Raise funds for research projects
-- Upload and store scientific datasets on decentralized storage
-- Track data provenance and citations
-- Convert datasets into NFTs for ownership verification
-- Control access to sensitive or proprietary data
-- Share revenue from data access
+DeSciData通过区块链技术和去中心化存储解决方案，实现：
 
-## Features
+- 研究数据的不可变和可验证存储 
+- 数据集的NFT铸造，实现所有权和版权保护
+- 基于智能合约的研究项目众筹
+- 引文追踪和学术贡献认可
+- 研究成果的透明度和可验证性
 
-### For Researchers
+## 技术架构
 
-- **Experiment Creation**: Researchers can create experiments with descriptions, funding goals, and time frames.
-- **Dataset Management**: Upload research data with configurable access controls.
-- **Data NFTization**: Convert valuable datasets into NFTs with provable ownership.
-- **Citation Tracking**: Monitor how your data is being cited and used in the scientific community.
-- **Revenue Generation**: Earn income from dataset access purchases.
+本项目由三个主要部分组成：
 
-### For Contributors/Funders
+### 前端 (Next.js + React)
+- 现代化、响应式用户界面
+- 区块链钱包集成 (MetaMask)
+- 实验和数据集浏览与管理
 
-- **Research Funding**: Fund experiments that align with your interests.
-- **Access Control**: Purchase access to datasets for your own research.
-- **Transparent Provenance**: Verify the origin and citation history of datasets.
+### 后端 (Node.js + Express + TypeScript)
+- RESTful API服务
+- 区块链交互服务
+- IPFS文件管理集成
 
-## Technical Architecture
+### 智能合约 (Solidity)
+- 实验管理合约
+- 数据NFT合约
+- 引文跟踪
+- 众筹功能
 
-The DeSciData platform consists of:
+## 主要功能
 
-1. **Smart Contracts**: Ethereum-based contracts handling ownership, access control, and fund management.
-2. **Decentralized Storage**: Integration with IPFS or similar services for storing dataset files.
-3. **NFT Implementation**: ERC721 standard for dataset NFT creation and ownership.
+- **实验管理**: 创建、更新和管理科学实验
+- **数据集管理**: 上传、存储和管理研究数据集
+- **NFT铸造**: 将数据集转换为NFT以保护知识产权
+- **引用追踪**: 追踪研究数据的引用和使用情况
+- **众筹机制**: 为有前景的科学项目筹集资金
+- **数据验证**: 确保研究数据的完整性和真实性
 
-## Getting Started
+## 开始使用
 
-### Prerequisites
+### 前提条件
 
-- Node.js and npm
-- Truffle or Hardhat for development and deployment
-- MetaMask or similar Ethereum wallet
+- Node.js v16+
+- MetaMask浏览器扩展
+- Sepolia测试网络账户和ETH
 
-### Installation
+### 安装
 
-1. Clone the repository
-```
-git clone https://github.com/yourusername/descidata.git
+1. 克隆仓库
+```bash
+git clone https://github.com/KarlLeen/descidata.git
 cd descidata
 ```
 
-2. Install dependencies
-```
+2. 安装依赖
+```bash
+# 后端依赖
+cd backend
+npm install
+
+# 前端依赖
+cd ../frontend
 npm install
 ```
 
-3. Compile contracts
+3. 配置环境变量
+   
+创建必要的环境变量文件：
+
+**后端 (.env)**
 ```
-npx hardhat compile
+PORT=5001
+NODE_ENV=development
+RPC_URL=https://sepolia.infura.io/v3/YOUR_INFURA_KEY
+PRIVATE_KEY=YOUR_PRIVATE_KEY
+EXPERIMENT_CONTRACT_ADDRESS=0xBd4d685D6DD1e88310bBa33041292050535E60ec
+PINATA_API_KEY=YOUR_PINATA_KEY
+PINATA_API_SECRET=YOUR_PINATA_SECRET
+PINATA_JWT=YOUR_PINATA_JWT
+FRONTEND_URL=http://localhost:3000
 ```
 
-4. Deploy to test network
+**前端 (.env.local)**
 ```
-npx hardhat run scripts/deploy.js --network <network_name>
+NEXT_PUBLIC_API_URL=http://localhost:5001
+NEXT_PUBLIC_EXPERIMENT_CONTRACT_ADDRESS=0xBd4d685D6DD1e88310bBa33041292050535E60ec
+NEXT_PUBLIC_DATA_NFT_CONTRACT_ADDRESS=YOUR_NFT_CONTRACT_ADDRESS
+NEXT_PUBLIC_RPC_URL=https://sepolia.infura.io/v3/YOUR_INFURA_KEY
 ```
 
-## Usage
+4. 启动应用
+```bash
+# 在一个终端窗口启动后端
+cd backend
+npm run dev
 
-### For Researchers
+# 在另一个终端窗口启动前端
+cd frontend
+npm run dev
+```
 
-1. Connect your wallet to the DeSciData dApp
-2. Create a new experiment with funding goals
-3. Upload datasets associated with your experiments
-4. Optionally NFTize valuable datasets
-5. Grant or sell access to your data
+访问 http://localhost:3000 开始使用应用程序。
 
-### For Contributors
+## 区块链集成
 
-1. Browse active experiments seeking funding
-2. Contribute funds to experiments you want to support
-3. Purchase access to datasets for your research
+DeSciData目前部署在Sepolia测试网络上，您需要在MetaMask中配置Sepolia网络并获取测试ETH。
 
-## License
+当前合约地址:
+- 实验合约: `0xBd4d685D6DD1e88310bBa33041292050535E60ec`
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+## IPFS集成
 
-## Contact
+DeSciData使用Pinata作为IPFS服务提供商，实现：
+- 文件上传
+- 元数据存储
+- 内容检索
+- 网关URL生成
 
-For any questions or feedback, please open an issue in this repository or contact the project maintainers.
+## 开发计划
+
+- 全面的测试套件
+- 用户认证实现
+- 高级数据访问控制
+- 更细致的引文机制
+- 优化区块链交互方法
+- 更强大的错误处理
+
+## 贡献
+
+欢迎提交问题和拉取请求。大型更改请先开issue讨论。
+
+## 许可证
+
+本项目基于MIT许可证 - 详情请见LICENSE文件。
+
+## 联系方式
+
+- 项目维护者: [Karl Leen](https://github.com/KarlLeen)
+- 邮箱: example@example.com
+
+---
+
+*DeSciData - 为去中心化科学创新提供动力*
