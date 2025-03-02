@@ -144,7 +144,7 @@ DeSciData使用Pinata作为IPFS服务提供商，实现：
 ## 联系方式
 
 - 项目维护者: [Karl Leen](https://github.com/KarlLeen)
-- 邮箱: example@example.com
+- 邮箱: limlamleen@gmail.com
 
 ---
 
